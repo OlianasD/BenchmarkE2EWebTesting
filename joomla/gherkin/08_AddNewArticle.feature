@@ -1,7 +1,7 @@
 Scenario: Adds a new article
 	Given the user is on the home page
 		When the user enters "administrator" in the "Username" field
-		And enters "dodicicaratteri" in the "Password" field
+		And enters "e2eW3Bt3s71nGB3nchM4rK" in the "Password" field
 		And clicks the "Sign in" button
 		And clicks the "Create a Post" link
 		And enters "Test Article 01" in the "Title" field

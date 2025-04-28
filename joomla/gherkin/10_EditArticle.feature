@@ -1,7 +1,7 @@
 Scenario: Edits an article
 	Given the user is on the home page
 		When the user enters "administrator" in the "Username" field
-		And enters "dodicicaratteri" in the "Password" field
+		And enters "e2eW3Bt3s71nGB3nchM4rK" in the "Password" field
 		And clicks the "Sign in" button
 		And clicks the gear icon to the bottom right of "Test Article 01"
 		And clicks the "Edit" option
