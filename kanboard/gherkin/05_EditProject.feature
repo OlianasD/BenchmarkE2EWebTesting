@@ -1,3 +1,4 @@
+Feature: Project management
 Scenario: Changes the description of a project
 	Given the user is on the login page (/login)
 		When the user enters "admin" in the "Username" field
@@ -10,3 +11,7 @@ Scenario: Changes the description of a project
 		And clicks the "Save" button
 		And clicks the "Summary" link
 	Then "This is the new description" is shown below "Description"		
+	
+	Given the previous assertion passed
+	Then the user clicks on the "A" icon in the top-right corner of the screen
+	And clicks the "Logout" link
