@@ -18,7 +18,7 @@ public class AddEmptySwimlane extends BaseTest {
 	@Test()
 	public void addNewSwimlane() {
 		SwimlanesPage swimlanes = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.firstProjectSummary()
 				.swimlanes()
 				.addSwimlane()

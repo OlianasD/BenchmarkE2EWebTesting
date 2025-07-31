@@ -16,7 +16,7 @@ public class EditProfile extends BaseTest {
 	@Test()
 	public void editProfile() {
 		UserSummaryPage user = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.goToSettings()
 				.usersManagement()
 				.goToUser("admin")

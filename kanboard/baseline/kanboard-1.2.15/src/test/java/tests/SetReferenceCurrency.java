@@ -19,7 +19,7 @@ public class SetReferenceCurrency extends BaseTest {
 	@Test()
 	public void setReference() {
 		CurrencyRatesPage currencies = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.goToSettings()
 				.currencyRates()
 				.changeReferenceCurrency()

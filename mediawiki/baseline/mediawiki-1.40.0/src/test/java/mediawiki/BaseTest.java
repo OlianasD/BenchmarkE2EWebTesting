@@ -1,5 +1,7 @@
 package mediawiki;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
@@ -9,21 +11,27 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import po.MainPage;
 
 public class BaseTest {
 	
 	public static WebDriver driver;
+	public static final String app_url = "http://192.168.1.141:8080";
 	
 	@Before
 	public void setup() {
-		WebDriverManager.chromedriver().clearDriverCache().setup();
 		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--no-sandbox", "--headless", "--disable-gpu", "--window-size=1920x1080", "--lang=en");
-		driver = new ChromeDriver(chromeOptions);
+		chromeOptions.addArguments("--no-sandbox", "--headless=new", "--disable-gpu", "--screen-info={1920x1080}", "--lang=en");
+		try {
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver.get("http://localhost:8080");
+		driver.get(app_url);
 	}
 	
 	protected MainPage loginAsAdmin() {

@@ -16,6 +16,11 @@ public class ProductsPage extends AdminSidebar {
 	}
 	
 	public String getFirstProductName() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return driver.findElement(By.xpath("//*[@id=\"container\"]/div/main/div[3]/ul/li[2]/div/a")).getText();
 	}
 	
@@ -32,7 +37,7 @@ public class ProductsPage extends AdminSidebar {
 	}
 	
 	public boolean containsProduct(String product) {
-		return driver.findElement(By.xpath("/html/body/div[2]/div/main/div[3]/ul/li[2]/div/a")).getText().contains("NewProduct000");
+		return driver.findElement(By.xpath("/html/body/div[2]/div/main/div[3]/ul/li[2]/div/a")).getText().contains(product);
 	}
 
 }

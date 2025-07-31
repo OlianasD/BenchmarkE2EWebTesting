@@ -10,6 +10,11 @@ public class ProjectListPage extends TopNavBar {
 	}
 	
 	public boolean containsProject(String proj) {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return driver.findElement(By.tagName("body")).getText().contains(proj);
 	}
 }

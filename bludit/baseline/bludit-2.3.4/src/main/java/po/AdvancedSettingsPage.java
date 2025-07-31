@@ -31,6 +31,11 @@ public class AdvancedSettingsPage extends AdminSidebar {
 	}
 	
 	public String getPostsOrder() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return new Select(driver.findElement(By.id("jsorderBy"))).getFirstSelectedOption().getText();
 	}
 	

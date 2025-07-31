@@ -16,7 +16,7 @@ public class AddLocalUser extends BaseTest {
 	@Test()
 	public void addLocalUser() {
 		UserSummaryPage user = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.usersManagement()
 				.newUser()
 				.setUsername("TestUser")

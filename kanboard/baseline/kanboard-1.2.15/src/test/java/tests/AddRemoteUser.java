@@ -17,7 +17,7 @@ public class AddRemoteUser extends BaseTest {
 	@Test()
 	public void addRemoteUser() {
 		UserSummaryPage user = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.usersManagement()
 				.newUser()
 				.setUsername("TestRemote")

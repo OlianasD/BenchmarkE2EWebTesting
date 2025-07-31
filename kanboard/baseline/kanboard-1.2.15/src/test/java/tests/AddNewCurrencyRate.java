@@ -18,7 +18,7 @@ public class AddNewCurrencyRate extends BaseTest {
 	@Test
 	public void addNewCurrencyRate() {
 		CurrencyRatesPage currencies = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.goToSettings()
 				.currencyRates()
 				.addCurrencyRate()

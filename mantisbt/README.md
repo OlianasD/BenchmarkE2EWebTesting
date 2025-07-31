@@ -9,6 +9,14 @@ This directory contains test suites and Gherkin speficiations for MantisBT. The 
 # Deployment instructions
 A Docker image is available for both versions of the application (1.2.0 and 2.25.4).
 
+To use the test suites with the RemoteWebDriver, the acutal IP address/domain name where the application resides must be used instead of `localhost`. The URL must be changed in the class `tests.BaseTest.app_url` and `tests.Installer.install_url` (the latter only for version 2.25.4).
+
+These test suites has been executed 50 times on Google Chrome version 137 without failures. To deploy the browser in a Docker container, use the following command:
+
+```bash
+docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:137.0-chromedriver-137.0
+```
+
 ## Deployment instructions for MantisBT 1.2.0
 The Docker container for the application under test can be created using the following command:
 
@@ -29,7 +37,7 @@ The web application will be exposed on `localhost:8989`. After the containers ar
 
 # Installation instructions (only for MantisBT 2.25.4)
 
-To finalize the installation of MantisBT 2.25.4, go to http://localhost:8989/admin/install.php and perform the following steps:
+To finalize the installation of MantisBT 2.25.4, au automated installer is provided in `tests.Installer`. If the automated installation fails, go to http://localhost:8989/admin/install.php and perform the following steps:
 
 1. Fill the form **Installation options** with the following values:
 
@@ -38,12 +46,11 @@ To finalize the installation of MantisBT 2.25.4, go to http://localhost:8989/adm
     * Password (for Database): `mantisbt`
     * Database name (for Database): `bugtracker`
     * Admin Username (to create Database if required): `root`
-    * Admin Password (to create Database if required): `root`
+    * Admin Password (to create Database if required): `e2eW3Bt3s71nGB3nchM4rK`
 
 2. If the checklist shows that everything is ok, the application is ready. Otherwise, if an error about the impossibility to write the configuration is displayed, you need to copy the PHP code contained in the **Write configuration files** section and save it in a file named `config_inc.php`
     * Copy the file into the container under `/var/www/html/config` with the command `docker cp config_inc.php mantisbt-2254-mantisbt-1:/var/www/html/config`
 
 3.  After the installation, change the administrator password to `e2eW3Bt3s71nGB3nchM4rK`
-
     
 

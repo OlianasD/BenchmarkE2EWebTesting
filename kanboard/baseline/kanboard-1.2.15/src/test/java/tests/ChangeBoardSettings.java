@@ -18,7 +18,7 @@ public class ChangeBoardSettings extends BaseTest {
 	@Test
 	public void changeBoardSettings() {
 		BoardSettingsPage boardSettings = new LoginPage(driver)
-			.loginToKanboard("admin", "admin")
+			.loginToKanboard("admin", password)
 			.goToSettings()
 			.boardSettings()
 			.setPublicrefreshIntgerval("85")

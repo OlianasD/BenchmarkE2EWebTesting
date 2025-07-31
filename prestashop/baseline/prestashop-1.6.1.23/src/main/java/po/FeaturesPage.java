@@ -22,6 +22,11 @@ public class FeaturesPage extends AdminSidebar {
     }
 	
 	public String getSuccesssMessage() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return tagMessage.getText();
 	}
 

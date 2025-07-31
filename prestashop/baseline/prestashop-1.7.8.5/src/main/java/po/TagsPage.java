@@ -22,6 +22,11 @@ public class TagsPage extends AdminSidebar {
 	}
 	
 	public String getSuccessMessage() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return tagMessage.getText();
 	}
 

@@ -29,6 +29,11 @@ public class BaseNavBar {
 	}
 	
 	public ManageNavBar manage() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		manage.click();
 		return new ManageNavBar(driver);
 	}
@@ -39,6 +44,11 @@ public class BaseNavBar {
 	}
 	
 	public ViewIssuesPage viewIssues() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		viewIssues.click();
 		return new ViewIssuesPage(driver);
 	}

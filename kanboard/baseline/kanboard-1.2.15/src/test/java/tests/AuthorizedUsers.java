@@ -17,7 +17,7 @@ public class AuthorizedUsers extends BaseTest {
 	@Test()
 	public void showAuthorizedUsers() {
 		PermissionsPage permissions = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.firstProjectSummary()
 				.permissions();
 		

@@ -12,7 +12,7 @@ services:
   mysql:
     image: mariadb:latest
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=e2eW3Bt3s71nGB3nchM4rK
       - MYSQL_DATABASE=bugtracker
       - MYSQL_USER=mantisbt
       - MYSQL_PASSWORD=mantisbt

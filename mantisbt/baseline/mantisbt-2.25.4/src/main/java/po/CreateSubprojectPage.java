@@ -20,6 +20,11 @@ public class CreateSubprojectPage extends ManageNavBar {
 	}
 	
 	public CreateSubprojectPage setName(String name) {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		this.name.sendKeys(name);
 		return this;
 	}

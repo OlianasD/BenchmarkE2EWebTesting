@@ -31,6 +31,11 @@ public class GeneralSettingsPage extends AdminSidebar {
 	}
 	
 	public String getFooter() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return footer.getAttribute("value");
 	}
 	

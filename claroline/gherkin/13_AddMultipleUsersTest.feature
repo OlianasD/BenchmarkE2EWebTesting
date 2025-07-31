@@ -12,7 +12,7 @@ Scenario: Adds a user to the system
 		And enters "testuser1" in the "Password (Confirmation)" field
 		And clicks the "Follow courses (student)" radio button
 		And clicks the "Ok" button
-		And clicks the "Create user" link
+		And clicks the "Create another new user" link
 		And enters "testuser2" in the "Name" field
 		And enters "testuser2" in the "First name" field
 		And enters "testuser2" in the "Username" field
@@ -20,7 +20,7 @@ Scenario: Adds a user to the system
 		And enters "testuser2" in the "Password (Confirmation)" field
 		And clicks the "Create courses (teacher)" radio button
 		And clicks the "Ok" button
-		And clicks the "Create user" link
+		And clicks the "Create another new user" link
 		And enters "testuser3" in the "Name" field
 		And enters "testuser3" in the "First name" field
 		And enters "testuser3" in the "Username" field

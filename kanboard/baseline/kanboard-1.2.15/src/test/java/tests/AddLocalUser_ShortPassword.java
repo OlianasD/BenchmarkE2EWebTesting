@@ -12,7 +12,7 @@ public class AddLocalUser_ShortPassword extends BaseTest {
 	@Test()
 	public void addShortPassword() {
 		NewUserPage user = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.usersManagement()
 				.newUser()
 				.setUsername("TestUser2")

@@ -86,6 +86,11 @@ public class EditProjectPage extends CreateProjectPage {
 	}
 	
 	public String getProjectCategory() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return projectCategory.getText();
 	}
 	

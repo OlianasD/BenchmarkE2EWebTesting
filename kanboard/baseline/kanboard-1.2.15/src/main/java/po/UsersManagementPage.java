@@ -41,6 +41,11 @@ public class UsersManagementPage extends TopNavBar {
 	}
 
 	public boolean containsUser(String user) {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return driver.findElement(By.tagName("body")).getText().contains(user);
 	}
 

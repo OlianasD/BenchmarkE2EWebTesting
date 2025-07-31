@@ -49,6 +49,12 @@ public class AdminSidebar extends PageObject {
 	}
 	
 	public UsersPage users() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		users.click();
 		return new UsersPage(driver);
 	}

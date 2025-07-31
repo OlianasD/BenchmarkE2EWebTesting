@@ -63,7 +63,12 @@ public class AdminSidebar extends PageObject {
 	}
 	
 	public ProductsPage goToProducts() {
-   	    Actions action = new Actions(driver);
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
+		Actions action = new Actions(driver);
    	    action.moveToElement(catalog).moveToElement(product).click().build().perform();
    	    return new ProductsPage(driver);
     }

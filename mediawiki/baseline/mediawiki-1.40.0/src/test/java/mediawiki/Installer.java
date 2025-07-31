@@ -1,7 +1,6 @@
-package utils;
+package mediawiki;
 
-import java.util.concurrent.TimeUnit;
-
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,23 +8,32 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class Installer {
 	
 	protected WebDriver driver;
+	protected final static String app_url = "http://192.168.1.141:8080";
 	
 	@Test
 	public void install() {
-		WebDriverManager.chromedriver().clearDriverCache().setup();
 		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--no-sandbox", "--disable-gpu", "--window-size=1920x1080");
-		driver = new ChromeDriver(chromeOptions);
+		chromeOptions.addArguments("--no-sandbox", "--headless=new", "--disable-gpu", "--screen-info={1920x1080}", "--lang=en");
+		try {
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver.get("http://localhost:8080");
+		driver.get(app_url);
 		driver.findElement(By.linkText("set up the wiki")).click();
 		new Select(driver.findElement(By.id("uselang"))).selectByVisibleText("en - English");
 		new Select(driver.findElement(By.id("ContLang"))).selectByVisibleText("en - English");
@@ -76,7 +84,14 @@ public class Installer {
 			e.printStackTrace();
 		}
 		driver.findElement(By.xpath("//*[@id=\"bodyContent\"]/div/div[1]/div[2]/form/div/input[2]")).click();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("Setup complete. Now copy the LocalSettings.php into the container");
+		driver.quit();
 	}
 
 }

@@ -12,7 +12,8 @@ Scenario: Adds a user to the system
 		And enters "n0tl34k3dy3t" in the "Password (Confirmation)" field
 		And clicks the "Follow courses (student)" radio button
 		And clicks the "Ok" button
-	Then "The new user has been successfully created" is shown on the page
+	#"sucessfully" with only one "c", there is a typo in Claroline
+	Then "The new user has been sucessfully created" is shown on the page
 
 	Given the previous assertion passed
 	Then the user clicks the "Logout" link

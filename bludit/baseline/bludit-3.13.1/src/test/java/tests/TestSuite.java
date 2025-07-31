@@ -6,6 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
+		Installer.class,
 	AddContentTest.class,
 	ChangeUrlTest.class,
 	ChangePositionTest.class,

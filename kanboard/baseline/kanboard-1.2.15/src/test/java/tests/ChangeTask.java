@@ -13,7 +13,7 @@ public class ChangeTask extends BaseTest{
 	@Test
 	public void changeTask() {
 		TaskPage task = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.goToProject("Test 2")
 				.goToTask("task 3")
 				.closeTask()

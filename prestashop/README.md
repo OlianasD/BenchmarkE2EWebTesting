@@ -23,10 +23,20 @@ docker run -ti --name some-prestashop --network prestashop-net -e DB_SERVER=some
 ```
 
 
-The web application will be exposed on `localhost:8080`. After the containers are deployed, an installation wizard must be followed
+The web application will be exposed on `localhost:8080`. To use the test suites with the RemoteWebDriver, the acutal IP address/domain name where the application resides must be used instead of `localhost`. The URL must be changed in the class `tests.BaseTest.app_url` and `tests.Installer.install_url`.
+These test suites has been executed 50 times on respectively on Google Chrome version 137 (Prestashop 1.6.1.23) and 138 (Prestashop 1.7.8.5) without failures. To deploy the browser in a Docker container, use the following command:
+
+```bash
+#Prestashop 1.6.1.23
+docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:137.0-chromedriver-137.0
+
+#Prestashop 1.7.8.5
+docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:138.0-chromedriver-138.0
+```
+ After the containers are deployed, an installation wizard must be followed
 
 # Installation instructions (for both versions)
-The installation wizard can be executed automatically by running `utils.Installer` as a JUnit test. If, for any reason, the automatic installation fails, these are the parameters that you should set in the installation wizard:
+The installation wizard can be executed automatically by running `tests.Installer` as a JUnit test. If, for any reason, the automatic installation fails, these are the parameters that you should set in the installation wizard:
 
 * Language: English (English)
 * Shop name: E2E Web Testing store
@@ -54,7 +64,7 @@ mv admin administrator
 ```
 
 ## Post-installation instructions (Prestashop 1.7.8.5 only)
-After completing the installation wizard (either manually or automatically), you need to access to the administration area of the application (http://localhost:8080/administrator), login and close the onboarding tutorial, that otherwise would change the expected layout of the page and make test scripts fail. In detail, you have to follow the steps illustrated in the following screenshots.
+After completing the installation wizard (either manually or automatically), you need to access to the administration area of the application (http://localhost:8080/administrator), login and close the onboarding tutorial, that otherwise would change the expected layout of the page and make test scripts fail. This can be done automatically by running `tests.StopOnboarding`. If the automated post-installation setup fails, you have to follow the steps illustrated in the following screenshots.
 
 ![First step](https://i.imgur.com/Y6pWNCD.png "Click START")
 

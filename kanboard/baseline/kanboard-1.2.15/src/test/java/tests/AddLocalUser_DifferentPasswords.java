@@ -12,7 +12,7 @@ public class AddLocalUser_DifferentPasswords extends BaseTest {
 	@Test()
 	public void addDifferentPasswords() {
 		NewUserPage user = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.usersManagement()
 				.newUser()
 				.setUsername("TestUser2")

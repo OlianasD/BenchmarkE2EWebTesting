@@ -15,7 +15,7 @@ public class AddNewColumn extends BaseTest {
 	@Test()
 	public void addNewColumn() {
 		ColumnsPage columns = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.firstProjectSummary()
 				.columns()
 				.addColumn()

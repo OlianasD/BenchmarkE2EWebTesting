@@ -9,5 +9,5 @@ Scenario: Adds a product to the system
 		And enters "Description for product 000" in the "Product description" field
 		And clicks the "Add product" button
 		And clicks the "Products" link
-	Then "NewProduct" is shown in the first row of the table
+	Then "NewProduct000" is shown in the first row of the table
 

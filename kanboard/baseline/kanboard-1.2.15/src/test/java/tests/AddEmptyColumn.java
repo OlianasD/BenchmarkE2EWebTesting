@@ -12,7 +12,7 @@ public class AddEmptyColumn extends BaseTest {
 	@Test()
 	public void addEmptyColumn() {
 		ColumnsPage columns = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.firstProjectSummary()
 				.columns()
 				.addColumn()

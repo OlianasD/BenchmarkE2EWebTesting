@@ -61,6 +61,11 @@ public class AddToCartPage {
 	}
 
 	public String getErrorMessage() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return tagMessage.getText();
 	}
 }

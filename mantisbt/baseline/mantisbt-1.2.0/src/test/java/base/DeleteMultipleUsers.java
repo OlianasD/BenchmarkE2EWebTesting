@@ -1,6 +1,6 @@
 package base;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 

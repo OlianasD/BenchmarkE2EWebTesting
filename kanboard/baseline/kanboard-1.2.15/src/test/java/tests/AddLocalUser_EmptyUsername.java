@@ -12,7 +12,7 @@ public class AddLocalUser_EmptyUsername extends BaseTest {
 	@Test()
 	public void addEmptyUser() {
 		NewUserPage user = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.usersManagement()
 				.newUser()
 				.setFullname("User2")

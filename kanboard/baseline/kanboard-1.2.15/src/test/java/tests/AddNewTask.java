@@ -16,7 +16,7 @@ public class AddNewTask extends BaseTest {
 	@Test()
 	public void addNewTask() {
 		ProjectManagementPage project = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.goToFirstProject()
 				.newTask()
 				.setNewTaskName("task 3")

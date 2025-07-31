@@ -16,7 +16,7 @@ public class AddNewPrivateProject extends BaseTest {
 	@Test
 	public void addNewPrivateProject() {
 		ProjectSummaryPage project = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.newPersonalProject()
 				.addNewProject("Test private 2");
 			  

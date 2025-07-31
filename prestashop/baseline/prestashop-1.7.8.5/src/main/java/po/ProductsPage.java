@@ -15,7 +15,8 @@ public class ProductsPage extends AdminSidebar {
 	@FindBy(xpath = "//*[@id=\"product_catalog_list\"]/div[2]/div/div/table/tbody/tr/td[11]/div/div/a")
 	protected WebElement editProduct;
 	
-	@FindBy(xpath = "//*[@id=\"product_catalog_list\"]/div[2]/div/div/table/tbody/tr/td[4]/a")
+	//@FindBy(xpath = "//*[@id=\"product_catalog_list\"]/div[2]/div/div/table/tbody/tr[1]/td[4]/a")
+	@FindBy(xpath = "//tr[1]/td[4]/a")
 	protected WebElement firstProduct;
 
 	public ProductsPage(WebDriver driver) {
@@ -50,6 +51,11 @@ public class ProductsPage extends AdminSidebar {
 	}
 	
 	public String getFirstProductName() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return firstProduct.getText();
 	}
 

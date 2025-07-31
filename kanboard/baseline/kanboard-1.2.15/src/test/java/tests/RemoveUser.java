@@ -15,7 +15,7 @@ public class RemoveUser extends BaseTest {
 	@Test
 	public void removeUser() {
 		UsersManagementPage users = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.usersManagement()
 				.removeFirstUser();
 		

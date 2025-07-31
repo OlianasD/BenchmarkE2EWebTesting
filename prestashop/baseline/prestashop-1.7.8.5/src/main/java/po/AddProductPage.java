@@ -80,6 +80,11 @@ public class AddProductPage {
 	}
 
 	public ProductsPage backToCatalog() {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		backToCatalogBtn.click();
 		return new ProductsPage(driver);
 	}

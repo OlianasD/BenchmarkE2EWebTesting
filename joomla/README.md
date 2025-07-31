@@ -24,15 +24,21 @@ The Docker container for the application under test can be created using the fol
 docker run -i -t  --name=joomla -p "3000:80" -d olianasd/joomla4stile
 ```
 
-The web application will be exposed on `localhost:3000`. 
+The web application will be exposed on `localhost:3000`. To use the test suite with the RemoteWebDriver, the acutal IP address/domain name where the application resides must be used instead of `localhost`. The URL must be changed in the classes `test.BaseTest.app_url` and `test.Installer.app_url`.
+
+These test suites has been executed 50 times on Google Chrome version 137 without failures. To deploy the browser in a Docker container, use the following command:
+
+```bash
+docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:137.0-chromedriver-137.0
+```
 
 # Installation instructions (only for Joomla 3.10.11)
 
-The installation wizard can be executed automatically by running `utils.Installer` as a JUnit test. If, for any reason, the automatic installation fails, these are the parameters that you should set in the installation wizard:
+The installation wizard can be executed automatically by running `tests.Installer` as a JUnit test. If, for any reason, the automatic installation fails, these are the parameters that you should set in the installation wizard:
 
 *	Language: English (United States)
 *	Site name: TestRigor joomla test
-*	Email: saul@fake.com
+*	Email: olianas@fake.com
 *	Username: administrator
 *	Password: e2eW3Bt3s71nGB3nchM4rK
 * 	Database type: MySQLi
@@ -44,7 +50,7 @@ The installation wizard can be executed automatically by running `utils.Installe
 *	E-mail configuration: No
 * 	Remove installation folder
 
-After completing the installation wizard (either manually or automatically), you need to access to the administration area of the application (http://localhost:8080/administrator), login and close some notifications, that otherwise would change the expected layout of the page and make test scripts fail. In detail, you have to answer "Never" to the permission to collect statistics, and read all post installation messages. 
+After completing the installation wizard (either manually or automatically), you need to access to the administration area of the application (http://localhost:8080/administrator), login and close some notifications, that otherwise would change the expected layout of the page and make test scripts fail. In detail, you have to answer "Never" to the permission to collect statistics, and read all post installation messages. You can execute these actions automatically by running `tests.RemoveMessages`.
 
 
 ![First step](https://i.imgur.com/1e2D90G.png "Answer Never to the permission to collect statistics")

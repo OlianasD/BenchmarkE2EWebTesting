@@ -47,6 +47,11 @@ public class UsersPage extends AdminSidebar {
 	}
 	
 	public boolean containsUser(String usr) {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return driver.findElement(By.tagName("body")).getText().contains(usr);
 	}
 	

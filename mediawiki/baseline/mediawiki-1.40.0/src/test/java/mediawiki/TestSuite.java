@@ -6,16 +6,16 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	/*CreateUserTest.class,
+	CreateUserTest.class,
 	CloseInitialEditorPopupTest.class,
 	CreatePageTest.class,
 	CreateAndLinkPageTest.class,
 	SearchPageTest.class,
 	EditPageTest.class,
-	CreateTemplateTest.class,*/
+	CreateTemplateTest.class,
 	CreatePageFromSourceTest.class,
 	ApplyTemplateTest.class,
-	/*AddCategoryTest.class,
+	AddCategoryTest.class,
 	ProtectPageTest.class,
 	AdminEditProtectedPage_GetsWarningTest.class,
 	EditProtectedPage_ForbiddenTest.class,
@@ -32,6 +32,6 @@ import org.junit.runners.Suite.SuiteClasses;
 	ChangePassword_TooCommonTest.class,
 	ChangePassword_OKTest.class,
 	CreateBlankPage_GetsWarningTest.class,
-	CreateEmptyUser_Fails.class,*/
+	CreateEmptyUser_Fails.class,
 })
 public class TestSuite {}

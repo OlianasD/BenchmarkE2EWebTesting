@@ -16,7 +16,7 @@ public class ClosedTasks extends BaseTest {
 	@Test
 	public void searchClosedTask() {
 		SearchResultsPage results = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.search("status:closed");
 		
 		assertEquals("task 3", results.getFirstTask());

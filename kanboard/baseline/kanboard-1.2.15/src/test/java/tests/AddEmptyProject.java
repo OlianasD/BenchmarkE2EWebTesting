@@ -13,7 +13,7 @@ public class AddEmptyProject extends BaseTest {
 	@Test()
 	public void addEmptyProject() {
 		AddNewProjectPage newProjPage = new LoginPage(driver)
-				.loginToKanboard("admin", "admin")
+				.loginToKanboard("admin", password)
 				.newProject()
 				.addEmptyProject();
 			  
