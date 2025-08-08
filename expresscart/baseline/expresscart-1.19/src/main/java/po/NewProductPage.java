@@ -46,6 +46,11 @@ public class NewProductPage extends AdminSidebar {
 	
 	public AdminSidebar addProduct() {
 		saveBtn.click();
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return new AdminSidebar(driver);
 	}
 	

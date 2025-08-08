@@ -26,6 +26,11 @@ public class TopNavBar extends PageObject {
 	}
 	
 	public int getCartCount() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return Integer.parseInt(cartCount.getText());
 	}
 	

@@ -11,7 +11,7 @@ for /L %%i in (1,1,%n%) do (
     echo [ESECUZIONE %%i DI %n%]
 
     echo Avvio container browser...
-    docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:137.0-chromedriver-137.0
+    docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:138.0-chromedriver-138.0
 
     timeout /t 5 /nobreak >nul
 
@@ -25,7 +25,7 @@ for /L %%i in (1,1,%n%) do (
 
     echo Salvataggio risultati...
     mkdir "..\..\..\..\flakycheck\bludit-3.13.1\java21-selenium314159-chrome137-headlesnew\%%i"
-    xcopy /E /Y "target\surefire-reports\*" "..\..\..\..\flakycheck\bludit-3.13.1\java21-selenium314159-chrome137-headlesnew\%%i\"
+    xcopy /E /Y "target\surefire-reports\*" "..\..\..\..\flakycheck\bludit-3.13.1\java21-selenium314159-chrome138-headlesnew\%%i\"
 
     echo Arresto e rimozione container Docker...
     docker stop browser >nul

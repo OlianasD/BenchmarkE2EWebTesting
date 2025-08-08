@@ -16,9 +16,9 @@ docker run -it --workdir=/home/claroline --name=claroline --expose 80 --expose 3
 The web application will be exposed on `http://localhost:3000/claroline11110/index.php`. The application is ready to use when the container is started, no post-installation steps are required.
 To use the test suite with the RemoteWebDriver, the acutal IP address/domain name where the application resides must be used instead of `localhost`. The URL must be changed in the classes `test.BaseTest.app_url` and `po.ClarolinePage.app_url`.
 
-This test suite has been executed 50 times on Google Chrome version 137 without failures. To deploy the browser in a Docker container, use the following command:
+This test suite has been executed 50 times on Google Chrome version 138 without failures. To deploy the browser in a Docker container, use the following command:
 
 ```bash
-docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:137.0-chromedriver-137.0
+docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:138.0-chromedriver-138.0
 ```
 

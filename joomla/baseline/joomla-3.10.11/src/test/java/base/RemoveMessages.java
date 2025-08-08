@@ -7,6 +7,11 @@ public class RemoveMessages extends BaseTest {
 
     @Test
     public void removeMessages() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+
+        }
         loginAsAdmin()
                 .siteAdmin()
                 .setUsername(adminUser)

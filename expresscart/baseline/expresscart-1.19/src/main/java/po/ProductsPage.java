@@ -17,7 +17,7 @@ public class ProductsPage extends AdminSidebar {
 	
 	public String getFirstProductName() {
 		try {
-			Thread.sleep(500);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			throw new RuntimeException(e);
 		}

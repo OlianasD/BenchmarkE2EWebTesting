@@ -65,6 +65,11 @@ public class NewDiscountPage extends AdminSidebar {
 	
 	public AdminSidebar addDiscount() {
 		addDiscount.click();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return new AdminSidebar(driver);
 	}
 	

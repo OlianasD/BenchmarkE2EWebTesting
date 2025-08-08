@@ -23,6 +23,11 @@ public class DiscountCodesPage extends AdminSidebar {
 	}
 	
 	public String getIthDiscountCode(int i) {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return driver.findElement(By.xpath("//*[@id=\"container\"]/div/main/div/ul/li["+i+"]/div/div[1]/span")).getText();
 	}
 	

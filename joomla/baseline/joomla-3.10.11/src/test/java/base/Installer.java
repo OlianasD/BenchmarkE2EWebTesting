@@ -30,6 +30,7 @@ public class Installer {
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(app_url);
+		Thread.sleep(1000);
 		driver.findElement(By.id("jform_language_chzn")).click();
 		driver.findElement(By.xpath("//*[@id=\"jform_language_chzn\"]/div/div/input")).sendKeys("English (United States)");
 		driver.findElement(By.xpath("//*[@id=\"jform_language_chzn\"]/div/div/input")).sendKeys(Keys.ENTER);

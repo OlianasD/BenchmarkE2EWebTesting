@@ -46,6 +46,11 @@ public class Installer {
 		driver.findElement(By.id("mysql__InstallPassword")).sendKeys("example");
 		driver.findElement(By.xpath("//*[@id=\"bodyContent\"]/div/div[1]/div[2]/form/div[6]/input[3]")).click();
 		driver.findElement(By.xpath("//*[@id=\"bodyContent\"]/div/div[1]/div[2]/form/div/input[3]")).click();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		driver.findElement(By.id("config_wgSitename")).sendKeys("E2E Web Testing wiki");
 		driver.findElement(By.id("config__AdminName")).sendKeys("admin");
 		driver.findElement(By.id("config__AdminPassword")).sendKeys("e2eW3Bt3s71nGB3nchM4rK");

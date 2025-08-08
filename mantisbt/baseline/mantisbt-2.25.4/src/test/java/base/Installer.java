@@ -40,7 +40,7 @@ public class Installer {
         driver.findElement(By.id("admin_password")).clear();
         driver.findElement(By.id("admin_password")).sendKeys("e2eW3Bt3s71nGB3nchM4rK");
         driver.findElement(By.name("go")).click();
-        Thread.sleep(500);
+        Thread.sleep(1000);
         driver.findElement(By.linkText("Continue")).click();
         new LoginPage(driver).setUsername("administrator").setPassword("root").login();
         driver.findElement(By.id("password-current")).sendKeys("root");

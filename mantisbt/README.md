@@ -11,10 +11,10 @@ A Docker image is available for both versions of the application (1.2.0 and 2.25
 
 To use the test suites with the RemoteWebDriver, the acutal IP address/domain name where the application resides must be used instead of `localhost`. The URL must be changed in the class `tests.BaseTest.app_url` and `tests.Installer.install_url` (the latter only for version 2.25.4).
 
-These test suites has been executed 50 times on Google Chrome version 137 without failures. To deploy the browser in a Docker container, use the following command:
+These test suites has been executed 50 times on Google Chrome version 138 without failures. To deploy the browser in a Docker container, use the following command:
 
 ```bash
-docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:137.0-chromedriver-137.0
+docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:138.0-chromedriver-138.0
 ```
 
 ## Deployment instructions for MantisBT 1.2.0

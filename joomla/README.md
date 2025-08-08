@@ -26,10 +26,10 @@ docker run -i -t  --name=joomla -p "3000:80" -d olianasd/joomla4stile
 
 The web application will be exposed on `localhost:3000`. To use the test suite with the RemoteWebDriver, the acutal IP address/domain name where the application resides must be used instead of `localhost`. The URL must be changed in the classes `test.BaseTest.app_url` and `test.Installer.app_url`.
 
-These test suites has been executed 50 times on Google Chrome version 137 without failures. To deploy the browser in a Docker container, use the following command:
+These test suites has been executed 50 times on Google Chrome version 138 without failures. To deploy the browser in a Docker container, use the following command:
 
 ```bash
-docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:137.0-chromedriver-137.0
+docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:138.0-chromedriver-138.0
 ```
 
 # Installation instructions (only for Joomla 3.10.11)
