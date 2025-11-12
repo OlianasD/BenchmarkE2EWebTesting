@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 
@@ -27,10 +28,10 @@ public class Installer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		driver.manage().window().maximize();
 		driver.get(app_url);
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		driver.findElement(By.id("jform_language_chzn")).click();
 		driver.findElement(By.xpath("//*[@id=\"jform_language_chzn\"]/div/div/input")).sendKeys("English (United States)");
 		driver.findElement(By.xpath("//*[@id=\"jform_language_chzn\"]/div/div/input")).sendKeys(Keys.ENTER);

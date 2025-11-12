@@ -31,6 +31,12 @@ public class ManageCategoriesPage extends SiteAdminPageObject {
 	
 	public ManageCategoriesPage deleteSelectedCategory() {
 		driver.findElement(By.xpath("//*[@id=\"toolbar-status-group\"]/button")).click();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		driver.findElement(By.xpath("//*[@id=\"status-group-children-trash\"]/button")).click();
 		return new ManageCategoriesPage(driver);
 	}

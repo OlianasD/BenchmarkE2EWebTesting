@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class Installer {
@@ -31,7 +32,7 @@ public class Installer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().window().maximize();
 		driver.get(app_url);
 		driver.findElement(By.linkText("set up the wiki")).click();
@@ -45,6 +46,11 @@ public class Installer {
 		driver.findElement(By.id("mysql__InstallUser")).sendKeys("wikiuser");
 		driver.findElement(By.id("mysql__InstallPassword")).sendKeys("example");
 		driver.findElement(By.xpath("//*[@id=\"bodyContent\"]/div/div[1]/div[2]/form/div[6]/input[3]")).click();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		driver.findElement(By.xpath("//*[@id=\"bodyContent\"]/div/div[1]/div[2]/form/div/input[3]")).click();
 		try {
 			Thread.sleep(1000);

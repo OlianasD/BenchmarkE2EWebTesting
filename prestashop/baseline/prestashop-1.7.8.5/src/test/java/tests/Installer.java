@@ -32,7 +32,7 @@ public class Installer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().window().maximize();
 		driver.get("http://192.168.1.141:8080/install/");
 		new Select(driver.findElement(By.id("langList"))).selectByVisibleText("English (English)");
@@ -53,12 +53,12 @@ public class Installer {
 		driver.findElement(By.id("dbServer")).sendKeys("some-mysql");
 		driver.findElement(By.id("dbPassword")).sendKeys("admin");
 		driver.findElement(By.id("btTestDB")).click();
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		driver.findElement(By.id("btCreateDB")).click();
 		Thread.sleep(5000);
 		driver.findElement(By.id("btNext")).click();
 
-		boolean success = new WebDriverWait(driver, 120).until(ExpectedConditions.textToBe(By.xpath("//*[@id=\"install_process_success\"]/div/h2"), "Your installation is finished!"));
+		boolean success = new WebDriverWait(driver, Duration.ofSeconds(180)).until(ExpectedConditions.textToBe(By.xpath("//*[@id=\"install_process_success\"]/div/h2"), "Your installation is finished!"));
 		if(success) {
 			System.out.println("Setup complete. Now: \n1) access the container using docker exec -it some-prestashop bash\n 2) remove directory \"install\"\n 3) rename \"admin\" directory to \"administrator\" ");
 		}

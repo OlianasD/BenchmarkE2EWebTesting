@@ -15,9 +15,6 @@ public class CreateMenuItemPage extends PageObject {
 	@FindBy(xpath = "/html/body/div[2]/section/div/div/form/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/span/button")
 	protected WebElement menuItemType;
 	
-	@FindBy(className = "button-save")
-	protected WebElement saveBtn;
-	
 	@FindBy(xpath = "//*[@id=\"system-message-container\"]/div/div[1]")
 	protected WebElement alertMsg;
 	
@@ -68,12 +65,22 @@ public class CreateMenuItemPage extends PageObject {
 	}
 	
 	public MenuItemsPage save() {
-		saveBtn.click();
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
+		driver.findElement(By.className("button-save")).click();
 		return new MenuItemsPage(driver);
 	}
 	
 	public CreateMenuItemPage saveError() {
-		saveBtn.click();
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
+		driver.findElement(By.className("button-save")).click();
 		return new CreateMenuItemPage(driver);
 	}
 	

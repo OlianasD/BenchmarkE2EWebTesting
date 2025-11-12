@@ -1,5 +1,6 @@
 package po;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -56,7 +57,7 @@ public class ProductsPage extends AdminSidebar {
 		} catch (InterruptedException e) {
 			throw new RuntimeException(e);
 		}
-		return firstProduct.getText();
+		return driver.findElement(By.xpath("//*[@id=\"product_catalog_list\"]/div[2]/div/div/table/tbody/tr[1]/td[4]/a")).getText();
 	}
 
 }

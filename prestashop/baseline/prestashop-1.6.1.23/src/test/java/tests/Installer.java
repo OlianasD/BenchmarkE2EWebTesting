@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 public class Installer {
 	
@@ -31,8 +32,10 @@ public class Installer {
 		driver.get(install_url);
 		new Select(driver.findElement(By.id("langList"))).selectByVisibleText("English (English)");
 		driver.findElement(By.id("btNext")).click();
+		Thread.sleep(1000);
 		driver.findElement(By.id("set_license")).click();
 		driver.findElement(By.id("btNext")).click();
+		Thread.sleep(1000);
 		driver.findElement(By.id("infosShop")).sendKeys("E2E Web Testing store");
 		driver.findElement(By.id("infosActivity_chosen")).click();
 		driver.findElement(By.xpath("//*[@id=\"infosActivity_chosen\"]/div/div/input")).sendKeys("Computer");
@@ -43,6 +46,7 @@ public class Installer {
 		driver.findElement(By.id("infosPassword")).sendKeys("e2eW3Bt3s71nGB3nchM4rK");
 		driver.findElement(By.id("infosPasswordRepeat")).sendKeys("e2eW3Bt3s71nGB3nchM4rK");
 		driver.findElement(By.id("btNext")).click();
+		Thread.sleep(1000);
 		driver.findElement(By.id("dbServer")).clear();
 		driver.findElement(By.id("dbServer")).sendKeys("some-mysql");
 		driver.findElement(By.id("dbPassword")).sendKeys("admin");
@@ -51,7 +55,7 @@ public class Installer {
 		driver.findElement(By.id("btCreateDB")).click();
 		Thread.sleep(5000);
 		driver.findElement(By.id("btNext")).click();
-		boolean success = new WebDriverWait(driver, 180).until(ExpectedConditions.textToBe(By.xpath("//*[@id=\"install_process_success\"]/div[1]/h2"), "Your installation is finished!"));
+		boolean success = new WebDriverWait(driver, Duration.ofSeconds(180)).until(ExpectedConditions.textToBe(By.xpath("//*[@id=\"install_process_success\"]/div[1]/h2"), "Your installation is finished!"));
 		if(success) {
 			System.out.println("Setup complete. Now: \n1) access the container using docker exec -it some-prestashop bash\n 2) remove directory \"install\"\n 3) rename \"admin\" directory to \"administrator\" ");
 		}

@@ -41,7 +41,7 @@ public class AdminSidebar extends PageObject {
     protected WebElement supplier;
     
     @FindBy(id = "maintab-AdminAdmin")
-    protected WebElement administaration;
+    protected WebElement administration;
     
     @FindBy(id = "subtab-AdminEmployees")
     protected WebElement employees;
@@ -117,7 +117,7 @@ public class AdminSidebar extends PageObject {
 	
 	public EmployeesPage goToEmployees() {
     	Actions action = new Actions(driver);
-    	action.moveToElement(administaration).moveToElement(employees).click().build().perform();
+    	action.moveToElement(administration).moveToElement(employees).click().build().perform();
     	return new EmployeesPage(driver);
     }
 	

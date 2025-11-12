@@ -39,6 +39,11 @@ public class ProjectSidebar extends TopNavBar {
 	}
 	
 	public ProjectSummaryPage summary() {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		summary.click();
 		return new ProjectSummaryPage(driver);
 	}

@@ -8,8 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 public class AddManufacturerPage {
 	WebDriver driver;
 
-	@FindBy(id = "page-header-desc-address-new_manufacturer")
-	WebElement addManufacturer;
 	@FindBy(id = "name")
 	WebElement name;
 	@FindBy(id = "manufacturer_form_submit_btn")
@@ -22,14 +20,16 @@ public class AddManufacturerPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void clickAddManufacturer() {
-		addManufacturer.click();
-	}
 
 	public ManufacturerPage addManufacturer(String nameStr) {
 		name.clear();
 		name.sendKeys(nameStr);
 		submitManufacturer.click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return new ManufacturerPage(driver);
 	}
 

@@ -24,8 +24,8 @@ for /L %%i in (1,1,%n%) do (
     mvn -Dtest=TestSuite test
 
     echo Salvataggio risultati...
-    mkdir "..\..\..\..\flakycheck\kanboard\java21-selenium314159-chrome138-headlessnew\%%i"
-    xcopy /E /Y "target\surefire-reports\*" "..\..\..\..\flakycheck\kanboard\java21-selenium314159-chrome138-headlessnew\%%i\"
+    mkdir "..\..\..\..\flakycheck\kanboard\java21-selenium434-chrome138-headlessnew\%%i"
+    xcopy /E /Y "target\surefire-reports\*" "..\..\..\..\flakycheck\kanboard\java21-selenium434-chrome138-headlessnew\%%i\"
 
     echo Arresto e rimozione container Docker...
     docker stop browser >nul

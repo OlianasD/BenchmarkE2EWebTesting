@@ -55,6 +55,11 @@ public class AdvancedSettingsPage extends GeneralSettingsAbstractPage {
 	}
 	
 	public String getSelectedHome() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		return driver.findElement(By.id("select2-jshomepage-container")).getAttribute("title");
 	}
 	

@@ -59,11 +59,21 @@ public class CreateMenuItemPage extends PageObject {
 	}
 	
 	public MenuItemsPage save() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		saveBtn.click();
 		return new MenuItemsPage(driver);
 	}
 	
 	public CreateMenuItemPage saveError() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		saveBtn.click();
 		return new CreateMenuItemPage(driver);
 	}

@@ -2,6 +2,7 @@ package tests;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
@@ -23,16 +24,16 @@ public class BaseTest {
 	@Before
 	public void setUp() {
 		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--no-sandbox", "--headless=new", "--disable-gpu", "--screen-info={1920x1080}");
+		chromeOptions.addArguments("--no-sandbox", /*"--headless=new",*/ "--disable-gpu", "--screen-info={1920x1080}");
 		try {
 			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		driver.get(app_url);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().window().maximize();
+		driver.get(app_url);
 	}
 
 	@After

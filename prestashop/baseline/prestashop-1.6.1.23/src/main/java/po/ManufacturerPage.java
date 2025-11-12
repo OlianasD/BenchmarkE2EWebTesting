@@ -24,6 +24,11 @@ public class ManufacturerPage extends ElementManagementPage {
 
 	public AddManufacturerPage editManufacturer() {
 		editDropDown.click();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		driver.findElement(
 				By.xpath("//*[@id=\"form-manufacturer\"]/div/div[2]/table/tbody/tr[2]/td[8]/div/div/ul/li[1]/a"))
 				.click();

@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 REM ======= CONFIGURA QUI IL NUMERO DI ESECUZIONI ==========
-set n=12
+set n=50
 
 REM ======= PERCORSO BASE PER I RISULTATI ===================
 
@@ -24,8 +24,8 @@ for /L %%i in (1,1,%n%) do (
     mvn -Dtest=TestSuite test
 
     echo Salvataggio risultati...
-    mkdir "..\..\..\..\flakycheck\expresscart\java21-selenium314159-chrome138-headlesnew\%%i"
-    xcopy /E /Y "target\surefire-reports\*" "..\..\..\..\flakycheck\expresscart\java21-selenium314159-chrome138-headlesnew\%%i\"
+    mkdir "..\..\..\..\flakycheck\expresscart\java21-selenium434-chrome138-headlesnew\%%i"
+    xcopy /E /Y "target\surefire-reports\*" "..\..\..\..\flakycheck\expresscart\java21-selenium434-chrome138-headlesnew\%%i\"
 
     echo Arresto e rimozione container Docker...
     docker stop browser >nul

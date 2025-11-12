@@ -32,7 +32,7 @@ public class BaseTest {
 			e.printStackTrace();
 		}
 		driver.get(app_url);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().window().maximize();
 	}
 

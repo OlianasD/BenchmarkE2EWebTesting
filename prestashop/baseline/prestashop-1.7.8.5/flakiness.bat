@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 REM ======= CONFIGURA QUI IL NUMERO DI ESECUZIONI ==========
-set n=50
+set n=17
 
 REM ======= PERCORSO BASE PER I RISULTATI ===================
 
