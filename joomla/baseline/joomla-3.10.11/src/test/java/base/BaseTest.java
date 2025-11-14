@@ -27,7 +27,7 @@ public class BaseTest {
 	public void setUp() {
 		setupNativeBrowser();
 		driver.manage().window().maximize();
-		driver.get("http://localhost:3000/");
+		driver.get(app_url);
 	}
 
 	public void setupNativeBrowser() {
