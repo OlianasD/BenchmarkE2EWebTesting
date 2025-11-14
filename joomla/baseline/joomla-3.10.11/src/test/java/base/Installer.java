@@ -16,18 +16,22 @@ import java.util.concurrent.TimeUnit;
 public class Installer {
 	
 	protected WebDriver driver;
-	protected final static String app_url = "http://192.168.1.141:8080";
+	protected final static String app_url = "http://localhost:8080";
 
 	@Test
 	public void install() throws InterruptedException {
-		ChromeOptions chromeOptions = new ChromeOptions();
+		/*ChromeOptions chromeOptions = new ChromeOptions();
 		chromeOptions.addArguments("--no-sandbox", "--headless=new", "--disable-gpu", "--screen-info={1920x1080}", "--lang=en");
 		try {
 			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-search-engine-choice-screen", "--headless=new", "--disable-gpu", "--screen-info={1920x1080}");
+		options.setBrowserVersion("127");
+		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		driver.manage().window().maximize();
 		driver.get(app_url);
