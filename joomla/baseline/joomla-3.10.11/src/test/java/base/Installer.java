@@ -30,8 +30,8 @@ public class Installer {
 			e.printStackTrace();
 		}*/
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--disable-search-engine-choice-screen", "--headless=new", "--disable-gpu", "--screen-info={1920x1080}");
-		options.setBrowserVersion("127");
+		options.addArguments("--disable-search-engine-choice-screen", /*"--headless=new",*/ "--disable-gpu", "--screen-info={1920x1080}");
+		options.setBrowserVersion("138");
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		driver.manage().window().maximize();

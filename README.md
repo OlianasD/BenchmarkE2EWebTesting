@@ -21,3 +21,5 @@ If you use this repository in your research work, please cite the following pape
 Dario Olianas, Maurizio Leotta, Filippo Ricca.
 **BEWT: A Benchmark for End-to-End Web Testing.**
 *Proceedings of 51st Euromicro Conference Series on Software Engineering and Advanced Applications* (**SEAA 2025**), 10-12 September 2025, Salerno, Italy, LNCS, Springer, 2025.
+
+https://doi.org/10.1007/978-3-032-04207-1_20

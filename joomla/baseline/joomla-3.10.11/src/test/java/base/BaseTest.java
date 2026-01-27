@@ -19,7 +19,7 @@ public class BaseTest {
 
 	protected static final String adminUser = "administrator";
 	protected static final String adminPsw = "e2eW3Bt3s71nGB3nchM4rK";
-	protected static final String app_url = "http://192.168.1.141:8080";
+	protected static final String app_url = "http://localhost:8080";
 	protected WebDriver driver;
 
 
@@ -32,8 +32,8 @@ public class BaseTest {
 
 	public void setupNativeBrowser() {
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--disable-search-engine-choice-screen", "--headless=new", "--disable-gpu", "--screen-info={1920x1080}");
-		options.setBrowserVersion("127");
+		options.addArguments("--disable-search-engine-choice-screen", /*"--headless=new",*/ "--disable-gpu", "--screen-info={1920x1080}");
+		options.setBrowserVersion("138");
 		driver = new ChromeDriver(options);
 	}
 
